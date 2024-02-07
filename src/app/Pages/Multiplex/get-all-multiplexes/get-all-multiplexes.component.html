@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="form-group">
+      <label for="citySelect">Select City:</label>
+      <!-- <input type="number" id="citySelect" class="form-control" [(ngModel)]="cityID"> -->
+      <select  [(ngModel)]="cityID" (change)="getMultiplexByCityID()">
+  
+          <option *ngFor="let item of cities" [value]="item.cityID">{{item.cityName}}</option>
+      </select>
+      <!-- <button class="btn btn-primary mt-2" (click)="getMultiplexByCityID()">Filter Multiplexes</button> -->
+    </div>
+  
+    <table class="table table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th>Multiplex ID</th>
+          <th>Multiplex Name</th>
+          <th>City ID</th>
+          <th>Screen Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let multiplex of multiplexes">
+          <td>{{multiplex.mulID}}</td>
+          <td>{{multiplex.mulName}}</td>
+          <td>{{multiplex.cityID}}</td>
+          <td>{{multiplex.screenNumber}}</td>
+          <td>
+            <button class="btn btn-info" (click)="getId(multiplex.mulID)">Edit</button> &nbsp;
+            <button class="btn btn-primary" (click)="delete(multiplex.mulID)">Delete</button> &nbsp;
+            <button class="btn btn-secondary" (click)="getId(multiplex.mulID)">View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
