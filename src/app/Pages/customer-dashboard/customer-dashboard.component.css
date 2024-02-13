@@ -1,0 +1,25 @@
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-right: 10px;
+  background-color: rgb(205, 92, 92);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 200px;
+}
+
+button:hover {
+  background-color: rgb(241, 94, 124);
+}
+
+.nav-link {
+  color: rgb(99, 5, 5);
+}
+
+.main {
+  background-color: #fff;
+}
+

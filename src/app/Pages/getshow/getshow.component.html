@@ -1,0 +1,16 @@
+<div *ngIf="shows.length > 0" class="shows-container">
+    <h3>Shows for Selected Movie:</h3>
+    <div class="show-tiles">
+      <div *ngFor="let show of shows" class="show-tile">
+        <div class="show-info">
+          <p><strong>Show Date:</strong> {{ show.showDateTime | date: 'dd/MM/yyyy' }}</p>
+          <p><strong>Show Timing:</strong></p>
+          <select [(ngModel)]="show.selectedTiming" class="form-control">
+            <option *ngFor="let timing of showTimings" [value]="timing">{{ timing }}</option>
+          </select>
+          <p><strong>Total Seatings:</strong> {{ show.totalSeatings }}</p>
+        </div>
+        <button class="btn btn-primary" (click)="getSeatingByShowID(show.showID)">Book Movie</button>
+      </div>
+    </div>
+  </div>

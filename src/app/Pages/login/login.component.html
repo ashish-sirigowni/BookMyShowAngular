@@ -1,3 +1,23 @@
+<style>
+  .container {
+    background-image: url('../../../assets/loginImg.jpg');
+    background-size: contain;
+    background-position: center;
+    width: 100vw;
+    height: 85vh;
+}
+
+
+    .register-form {
+        background-image: url('../../../assets/loginOneImg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
+
 <div class="container">
     <div class="register-form" style="width: 50%;">
         <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">

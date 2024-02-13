@@ -144,13 +144,19 @@ export class GetShowsByMultiplexComponent {
     location.reload(); 
   }
   getId(id: any) {
-    this.router.navigateByUrl('customerdashboard/multiplexbyid/' + id);
-  }
+     this.router.navigateByUrl('customerdashboard/multiplexbyid/' + id);
+   }
   getSeatingByShowID(showId:any) : void{
     localStorage.setItem("showID",showId);
   
       this.router.navigateByUrl('customerdashboard/getseating'); 
   
     }
-
+// getShowByMovieID(movieId:any) : void{
+//       localStorage.setItem("movieID",movieId);
+    
+//         this.router.navigateByUrl('customerdashboard/getshow'); 
+    
+//       }
+  
 }

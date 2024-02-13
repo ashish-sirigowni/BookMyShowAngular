@@ -1,0 +1,42 @@
+.navbar {
+    background-color: #2ecc71; /* New color: Emerald Green */
+  }
+  
+  .navbar-toggler-icon {
+    color: #fff;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:white;
+    font-family: 'Roboto', sans-serif; /* New font: Roboto */
+  }
+  
+  .nav-link {
+    color: #fff;
+  }
+  
+  .nav-link:hover {
+    color:#FFA07A; /* New color: Dodger Blue */
+  }
+  
+  /* Offcanvas sidebar styles */
+  
+  
+  /* Main content styles */
+  .main {
+    padding-top: 50px; /* Adjust based on your navbar height */
+  }
+  
+  /* Footer styles */
+  footer {
+    /* New color: Alizarin Red */
+    /* color:black;
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1px; */
+    font-family: 'Arial', sans-serif; /* New font: Arial */
+  }

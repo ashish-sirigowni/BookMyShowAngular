@@ -3,4 +3,5 @@ export class Seating {
     public row?:any;
     public number?:number;
     public showID?:number;
+    //public seatNumber?:number;
 }

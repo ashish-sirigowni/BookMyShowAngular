@@ -1,0 +1,18 @@
+/* Custom CSS for the tiles */
+.card {
+    margin-bottom: 20px; /* Add some space between tiles */
+}
+
+.card-title {
+    font-size: 1.25rem; /* Increase font size for city name */
+    margin-bottom: 10px; /* Add some space below city name */
+}
+
+.card-text {
+    color: #6c757d; /* Change text color for city ID */
+}
+
+.btn {
+    margin-top: 10px; /* Add space between buttons */
+    margin-right: 5px; /* Add space between buttons */
+}

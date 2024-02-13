@@ -1,0 +1,28 @@
+<div class="container-fluid" id="main">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
+            <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
+                <button class="nav-link btn btn-link" [routerLink]="'addcity'"><li class="nav-item">Add City</li></button>
+                <button class="nav-link btn btn-link" [routerLink]="'getallcities'"><li class="nav-item">Get All Cities</li></button>
+                <button class="nav-link btn btn-link" [routerLink]="'getallmultiplexesadmin'"><li class="nav-item">Get All Multiplexes</li></button>
+                <button class="nav-link btn btn-link" [routerLink]="'addmultiplex'"><li class="nav-item">Add Multiplex</li></button>
+                <button class="nav-link btn btn-link" [routerLink]="'getallmovies'"><li class="nav-item">Get All Movies</li></button>
+                <button class="nav-link btn btn-link" [routerLink]="'addmovie'"><li class="nav-item">Add Movie</li></button>
+                <!-- <button class="nav-link btn btn-link" [routerLink]="'getmoviebyid/:mid'"><li class="nav-item">Get Movie By ID</li></button> -->
+                <button class="nav-link btn btn-link" [routerLink]="'getallshows'"><li class="nav-item">Get All Shows</li></button>
+                <button class="nav-link btn btn-link" [routerLink]="'addshow'"><li class="nav-item">Add Show</li></button>
+            
+                <!-- <button class="nav-link btn btn-link" [routerLink]="'getshowbyid/:mid'"><li class="nav-item">Get Show By ID</li></button> -->
+                <!-- <button class="nav-link btn btn-link" [routerLink]="'getallbookingsadmin'"><li class="nav-item">Get All Bookings</li></button> -->
+                <!-- <button class="nav-link btn btn-link" [routerLink]="'login'"><li class="nav-item">LogOut</li></button> -->
+                <button class="nav-link btn btn-link" (click)="logout()"><li class="nav-item">LogOut</li></button>
+            </ul>
+        </div>
+        <!--/col-->
+
+        <div class="col main pt-5 mt-3">
+            <router-outlet></router-outlet>
+        </div>
+        <!--/main col-->
+    </div>
+</div>

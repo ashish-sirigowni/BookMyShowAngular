@@ -1,22 +1,15 @@
 <div class="container">
-    <table class="table table-bordered table-responsive">
-        <thead>
-            <tr>
-                <th>CityID</th>
-                <th>City Name</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let city of cities">
-                <td>{{city.cityID}}</td>
-                <td>{{city.cityName}}</td>
-                <td>
-                    <!-- <button class="btn btn-info" (click)="getId(city.cityID)">Edit</button> &nbsp;
-                    <button class="btn btn-primary" (click)="delete(city.cityID)">Delete</button> &nbsp;
-                    <button class="btn btn-secondary" (click)="getId(city.cityID)">View</button> -->
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let city of cities">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{city.cityName}}</h5>
+                    <p class="card-text">CityID: {{city.cityID}}</p>
+                    <button class="btn btn-info" (click)="getId(city.cityID)">Edit</button>
+                    <button class="btn btn-primary" (click)="delete(city.cityID)">Delete</button>
+                    <button class="btn btn-secondary" (click)="getId(city.cityID)">View</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

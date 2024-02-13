@@ -1,53 +1,38 @@
-<head>
-    <title>Movie Booking Page</title>
-    <link rel="stylesheet" href="./get-shows-by-multiplex.component.css"> 
-  </head>
+
   <body>
-  <div class="container">
-    <!-- <h2>Book Your Movie Now</h2> -->
-    <h1 class="book-now-heading">Book Your Movie Now</h1>
-    <div class="form-group">
-      <label for="citySelect">Select City:</label>
-      <select [(ngModel)]="cityID" (change)="getMultiplexByCityID()" class="form-control" id="citySelect">
-        <option *ngFor="let item of cities" [value]="item.cityID">{{ item.cityName }}</option>
-      </select>
-      <label for="multiplexSelect">Select Multiplex:</label>
-      <select [(ngModel)]="mulID" (change)="getMovieByMultiplexID()" class="form-control" id="multiplexSelect">
-        <option *ngFor="let item of multiplexes" [value]="item.mulID">{{ item.mulName }}</option>
-      </select>
+    <div class="container">
+      <h2 class="book-now-heading">Book Your Movie Now</h2>
+      <div class="form-group">
+        <div class="search-box">
+          <label for="citySelect">Select City:</label>
+          <select [(ngModel)]="cityID" (change)="getMultiplexByCityID()" class="form-control" id="citySelect">
+            <option *ngFor="let item of cities" [value]="item.cityID">{{ item.cityName }}</option>
+          </select>
+        </div>
+        <div class="search-box">
+          <label for="multiplexSelect">Select Multiplex:</label>
+          <select [(ngModel)]="mulID" (change)="getMovieByMultiplexID()" class="form-control" id="multiplexSelect">
+            <option *ngFor="let item of multiplexes" [value]="item.mulID">{{ item.mulName }}</option>
+          </select>
+        </div>
+      </div>
     </div>
+    
     
     
   
     
-  <div class="container">
-    <table class="table table-bordered table-responsive">
-        <thead>
-            <tr>
-                <!-- <th>Movie ID</th> -->
-                <th>Movie Name</th>
-                <th>Release Date</th>
-                <th>Image Poster</th>
-                <!-- <th>Multiplex ID</th> -->
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let movie of movies">
-                <!-- <td>{{movie.movieID}}</td> -->
-                <td>{{movie.movName}}</td>
-                <td>{{movie.releaseDate|date:'dd/MM/YYYY'}}</td>
-                <!-- <td>{{movie.mulID}}</td> -->
-                <td>
-                  <img src="http://localhost:5217/Resources/Images/{{movie.imageUrl}}" alt="" width="100" height="100">
-                </td>
-                <td>
-                    <button class="btn btn-primary" (click)="getShowByMovieID(movie.movieID)">Select</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-  </div>
+    <div class="container">
+      <div class="movie-tiles">
+        <div *ngFor="let movie of movies" class="movie-tile">
+          <img src="http://localhost:5084/Resources/Images/{{movie.imageUrl}}" alt="" width="100" height="100">
+          <h3>{{movie.movName}}</h3>
+          <p>Release Date: {{movie.releaseDate | date:'dd/MM/YYYY'}}</p>
+          <button class="btn btn-primary" (click)="getShowByMovieID(movie.movieID)">Select</button>
+        </div>
+      </div>
+    </div>
+    
   
   
   <!-- <div class="container">
@@ -61,45 +46,23 @@
    
   
   
-  
-  <div *ngIf="shows.length > 0">
-    <h3>Shows for Selected Movie:</h3>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <!-- <th>Show ID</th>
-          <th>Multiplex ID</th>
-          <th>Movie ID</th> -->
-          <th>Show Date</th>
-          <th>Show Timing</th>
-          <th>Total Seatings</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let show of shows">
-          <!-- <td>{{ show.showID }}</td>
-          <td>{{ show.mulID }}</td>
-          <td>{{ show.movieID }}</td> -->
-          <tr *ngFor="let show of shows; let i = index">
-            <td>{{ show.showDateTime | date: 'dd/MM/yyyy' }}</td>
-  
-            <td>
-              <select [(ngModel)]="shows[i].selectedTiming" class="form-control">
-                <option *ngFor="let timing of showTimings" [value]="timing">{{ timing }}</option>
-              </select>
-            </td>
-          <td>{{ show.totalSeatings }}</td>
-          <!-- <td>
-            <button class="btn btn-primary" (click)="AddBookingForShow(show.showID)">Book Movie</button>
-          </td> -->
-          <td>
-            <button class="btn btn-primary" (click)="getSeatingByShowID(show.showID)">Book Movie</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+    <div *ngIf="shows.length > 0" class="shows-container">
+      <h3>Shows for Selected Movie:</h3>
+      <div class="show-tiles">
+        <div *ngFor="let show of shows" class="show-tile">
+          <div class="show-info">
+            <p><strong>Show Date:</strong> {{ show.showDateTime | date: 'dd/MM/yyyy' }}</p>
+            <p><strong>Show Timing:</strong></p>
+            <select [(ngModel)]="show.selectedTiming" class="form-control">
+              <option *ngFor="let timing of showTimings" [value]="timing">{{ timing }}</option>
+            </select>
+            <p><strong>Total Seatings:</strong> {{ show.totalSeatings }}</p>
+          </div>
+          <button class="btn btn-primary" (click)="getSeatingByShowID(show.showID)">Book Movie</button>
+        </div>
+      </div>
+    </div>
+    
   
   
   

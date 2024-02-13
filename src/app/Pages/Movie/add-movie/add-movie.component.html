@@ -1,0 +1,40 @@
+<div class="container">
+    <table class="table">
+        <!-- <tr>
+            <td>Movie ID</td>
+            <td>
+                <input type="number" [(ngModel)]="movie.movieID">
+            </td>
+        </tr> -->
+        <tr>
+            <td>Movie Name</td>
+            <td>
+                <input type="text" [(ngModel)]="movie.movName">
+            </td>
+        </tr>
+        <tr>
+            <td>Release Date</td>
+            <td>
+                <input type="Date" [(ngModel)]="movie.releaseDate">
+            </td>
+        </tr>
+        <tr>
+            <td>Multiplex ID</td>
+            <td>
+                <input type="number" [(ngModel)]="movie.mulID">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <app-upload-img></app-upload-img>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <button (click)="addMovie()">Add</button>
+            </td>
+        </tr>
+
+    </table>
+</div>

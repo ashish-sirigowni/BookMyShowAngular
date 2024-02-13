@@ -1,0 +1,30 @@
+.shows-container {
+    margin-top: 20px; /* Add some top margin */
+  }
+  
+  .show-tiles {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .show-tile {
+    width: calc(50% - 20px); /* Two tiles per row with margin */
+    margin: 10px; /* Add some margin between tiles */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .show-info {
+    margin-bottom: 10px;
+  }
+  
+  .show-info p {
+    margin: 5px 0;
+  }
+  
+  .show-tile button {
+    margin-top: 10px; /* Add some top margin to the button */
+  }

@@ -1,57 +1,50 @@
 /* get-seating.component.css */
 
-/* Container for seating layout */
-.seating-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Row */
-  .row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  /* Row label */
-  .row-label {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  /* Individual seating item */
-  .seating-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer; /* Add cursor pointer */
-  }
-  
-  /* Styling for seating number */
-  .seating-number {
-    font-size: 0.8rem;
-    color: #666;
-  }
-  
-  /* Styling for seating letter */
-  .seating-letter {
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Styling for selected seats */
-  .seating-item.selected {
-    background-color: #ffcc00; /* Change background color when selected */
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.7); /* Change box shadow when selected */
-  }
-  
+/* Styling for the seating layout */
+.seating-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for selected seats */
+.seat.selected {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Style for booked seats */
+.booked {
+  background-color: #f00;
+  color: #f00;
+  border-color: #f00;
+}
+
+/* Hover effect for seats */
+.seat:hover {
+  background-color: #f0f0f0;
+}
+
+/* Styling for the save button */
+.btn-primary {
+  margin-top: 5px;
+}

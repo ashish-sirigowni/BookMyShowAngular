@@ -9,28 +9,24 @@
       <!-- <button class="btn btn-primary mt-2" (click)="getMultiplexByCityID()">Filter Multiplexes</button> -->
     </div>
   
-    <table class="table table-bordered table-responsive">
-      <thead>
-        <tr>
-          <th>Multiplex ID</th>
-          <th>Multiplex Name</th>
-          <th>City ID</th>
-          <th>Screen Number</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let multiplex of multiplexes">
-          <td>{{multiplex.mulID}}</td>
-          <td>{{multiplex.mulName}}</td>
-          <td>{{multiplex.cityID}}</td>
-          <td>{{multiplex.screenNumber}}</td>
-          <td>
-            <button class="btn btn-info" (click)="getId(multiplex.mulID)">Edit</button> &nbsp;
-            <button class="btn btn-primary" (click)="delete(multiplex.mulID)">Delete</button> &nbsp;
-            <button class="btn btn-secondary" (click)="getId(multiplex.mulID)">View</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let multiplex of multiplexes">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Multiplex Name: {{ multiplex.mulName }}</h5>
+              <p class="card-text">Multiplex ID: {{ multiplex.mulID }}</p>
+              <p class="card-text">City ID: {{ multiplex.cityID }}</p>
+              <p class="card-text">Screen Number: {{ multiplex.screenNumber }}</p>
+              <div>
+                <button class="btn btn-info" (click)="getId(multiplex.mulID)">Edit</button>
+                <button class="btn btn-primary" (click)="delete(multiplex.mulID)">Delete</button>
+                <button class="btn btn-secondary" (click)="getId(multiplex.mulID)">View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>

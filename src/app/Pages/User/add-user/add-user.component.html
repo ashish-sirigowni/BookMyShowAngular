@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="register-form" style="width: 50%;">
+        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f)">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" name="username" [(ngModel)]="user.name" required
+                    #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+                <div *ngIf="f.submitted && username.errors" class="invalid-feedback">
+                    <div *ngIf="username.errors['required']">Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="useremail" [(ngModel)]="user.email" required
+                    #useremail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && useremail.errors }" />
+                <div *ngIf="f.submitted && useremail.errors" class="invalid-feedback">
+                    <div *ngIf="useremail.errors['required']">Email is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Mobile</label>
+                <input type="text" class="form-control" name="usermobile" [(ngModel)]="user.mobile" required
+                    #usermobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usermobile.errors }" />
+                <div *ngIf="f.submitted && usermobile.errors" class="invalid-feedback">
+                    <div *ngIf="usermobile.errors['required']">Mobile is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="userpassword" [(ngModel)]="user.password" required
+                    minlength="5" maxlength="20" #userpassword="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && userpassword.errors }" />
+                <div *ngIf="f.submitted && userpassword.errors" class="invalid-feedback">
+                    <div *ngIf="userpassword.errors['required']">Password is required</div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Role</label>
+                <select class="form-control" name="userrole" [(ngModel)]="user.role" required
+                  #userrole="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userrole.errors }">
+                  <option value="" disabled>Select Role</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Customer">Customer</option>
+                </select>
+                <div *ngIf="f.submitted && userrole.errors" class="invalid-feedback">
+                  <div *ngIf="userrole.errors['required']">Role is required</div>
+                </div>
+              </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="button" (click)="onReset(f)" class="btn btn-warning float-right">
+                    Reset
+                </button>
+                <button type="button" class="btn btn-info float-right mr-2" (click)="goToLogin()">Login</button>
+            </div>
+            <div class="form-group">
+                <span>{{errMsg}}</span>
+            </div>
+        </form>
+    </div>
+</div>

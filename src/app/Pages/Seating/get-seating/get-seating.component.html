@@ -1,93 +1,15 @@
-<!-- get-seating.component.html -->
-<div class="seating-container">
-    <p> Look Here! Screen This Way </p>
-    <div class="row">
-      <div class="row-label">A</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'A')" [class.selected]="isSeatSelected('A', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">A</div>
-      </div>
-    </div>
-  
-    <!-- Row B -->
-    <div class="row">
-      <div class="row-label">B</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'B')" [class.selected]="isSeatSelected('B', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">B</div>
-      </div>
-    </div>
-  
-    <!-- Row C -->
-    <div class="row">
-      <div class="row-label">C</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'C')" [class.selected]="isSeatSelected('C', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">C</div>
-      </div>
-    </div>
-  
-    <!-- Row D -->
-    <div class="row">
-      <div class="row-label">D</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'D')" [class.selected]="isSeatSelected('D', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">D</div>
-      </div>
-    </div>
-  
-    <!-- Row E -->
-    <div class="row">
-      <div class="row-label">E</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'E')" [class.selected]="isSeatSelected('E', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">E</div>
-      </div>
-    </div>
-  
-    <!-- Row F -->
-    <div class="row">
-      <div class="row-label">F</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'F')" [class.selected]="isSeatSelected('F', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">F</div>
-      </div>
-    </div>
-  
-    <!-- Row G -->
-    <div class="row">
-      <div class="row-label">G</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'G')" [class.selected]="isSeatSelected('G', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">G</div>
-      </div>
-    </div>
-  
-    <!-- Row H -->
-    <div class="row">
-      <div class="row-label">H</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'H')" [class.selected]="isSeatSelected('H', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">H</div>
-      </div>
-    </div>
-  
-    <!-- Row I -->
-    <div class="row">
-      <div class="row-label">I</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'I')" [class.selected]="isSeatSelected('I', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">I</div>
-      </div>
-    </div>
-  
-    <!-- Row Z -->
-    <div class="row">
-      <div class="row-label">Z</div>
-      <div *ngFor="let number of generateNumberArray(10)" class="seating-item" (click)="toggleSeat(number, 'Z')" [class.selected]="isSeatSelected('Z', number)">
-        <div class="seating-number">{{ number }}</div>
-        <div class="seating-letter">Z</div>
-      </div>
+<div class="seating-layout">
+  <div *ngFor="let row of rows" class="row">
+    <div *ngFor="let seatNumber of seatNumbers" 
+         class="seat"
+         [class.selected]="isSeatSelected(row, seatNumber)"
+         [class.booked]="isSeatBooked(row, seatNumber)|async"
+         (click)="toggleSeat(seatNumber, row)">
+      {{ row }}{{ seatNumber }}
     </div>
   </div>
-  
+</div>
+<div>
+  <button class="btn btn-primary" (click)="saveSelectedSeating()">Save Selected Seating</button>
+</div>
+
